@@ -1,4 +1,7 @@
 <?php
+// Add your projects's details below 
+// and rename this file to setup.php
+
 require_once('authenticate.php');
 	$quiet_mode = FALSE;
 	
