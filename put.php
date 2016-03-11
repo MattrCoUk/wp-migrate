@@ -45,7 +45,9 @@ if ( isset($_POST["submit"]) ) :
 	    if ($_FILES['upfile']['size']> $fileSizeLimit) {
 	        throw new RuntimeException('Exceeded filesize limit.');
 	    }
-
+		
+		// the below is not working with php 5.2
+		
 	    // // DO NOT TRUST $_FILES['upfile']['mime'] VALUE !!
 	    // // Check MIME Type by yourself.
 	    // $finfo = new finfo(FILEINFO_MIME_TYPE);
@@ -89,7 +91,7 @@ if ( isset($_POST["submit"]) ) :
 
 
 
-	
+	if (!is_dir(dirname(__FILE__) . '/upload')) mkdir(dirname(__FILE__) . '/upload',0755);
 	
 
 	$file = dirname(__FILE__) . '/upload/incoming-db-sql.'.$ext;
